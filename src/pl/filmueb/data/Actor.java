@@ -12,6 +12,10 @@ public class Actor {
         this.nationality = nationality;
     }
 
+    public Actor(){
+
+    }
+
     public void showInfo(){
 
     }

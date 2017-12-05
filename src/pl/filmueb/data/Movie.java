@@ -5,7 +5,7 @@ public class Movie {
     private String name;
     private String director;
     private String year;
-    private String genere;
+    private String genre;
     private String description;
     private double rating;
 
@@ -13,11 +13,14 @@ public class Movie {
         this.name = name;
         this.director = director;
         this.year = year;
-        this.genere = genere;
+        this.genre = genere;
         this.description = description;
         this.rating = rating;
     }
 
+    public Movie(){
+
+    }
 
     public String getName() {
         return name;
@@ -44,11 +47,11 @@ public class Movie {
     }
 
     public String getGenere() {
-        return genere;
+        return genre;
     }
 
     public void setGenere(String genere) {
-        this.genere = genere;
+        this.genre = genere;
     }
 
     public String getDescription() {
@@ -64,7 +67,10 @@ public class Movie {
     }
 
     public void setRating(double rating) {
-        this.rating = rating;
+        if(rating >=0 && rating<=10)
+            this.rating = rating;
+        else
+            System.out.println("Podana wartość jest nieprawidłowa. (Zakres oceny to 0-10)");
     }
 
 

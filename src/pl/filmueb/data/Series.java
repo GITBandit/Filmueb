@@ -6,7 +6,7 @@ public class Series {
     private int noOfSeries;
     private int noOfEpisodes;
     private String producer;
-    private String genere;
+    private String genre;
     private String description;
     private double rating;
 
@@ -15,9 +15,13 @@ public class Series {
         this.noOfSeries = noOfSeries;
         this.noOfEpisodes = noOfEpisodes;
         this.producer = producer;
-        this.genere = genere;
+        this.genre = genere;
         this.description = description;
         this.rating = rating;
+    }
+
+    public Series(){
+
     }
 
     public String getName() {
@@ -52,12 +56,12 @@ public class Series {
         this.producer = producer;
     }
 
-    public String getGenere() {
-        return genere;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setGenere(String genere) {
-        this.genere = genere;
+    public void setGenre(String genere) {
+        this.genre = genere;
     }
 
     public String getDescription() {
@@ -73,6 +77,9 @@ public class Series {
     }
 
     public void setRating(double rating) {
-        this.rating = rating;
+        if(rating >=0 && rating<=10)
+            this.rating = rating;
+        else
+            System.out.println("Podana wartość jest nieprawidłowa. (Zakres oceny to 0-10)");
     }
 }
