@@ -98,9 +98,7 @@ public class ConsoleDataReader {
         series[seriesCount].setRating(scanner.nextDouble());
         scanner.nextLine();
         if(series[seriesCount].getRating()==0){
-            series[seriesCount] = null;
-            seriesCount--;
-        }
+            series[seriesCount] = null;}
 
         seriesCount++;
         return series[seriesCount];
