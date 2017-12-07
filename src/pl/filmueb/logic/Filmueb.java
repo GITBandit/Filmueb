@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Filmueb {
     public static void main(String[] args) {
 
-        System.out.println("Filmueb v0.1");
+        System.out.println("Filmueb v0.2");
 
         Scanner scanner = new Scanner(System.in);
 
