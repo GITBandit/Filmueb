@@ -14,29 +14,23 @@ public class ConsoleDataReader {
         Movie newMovie = new Movie ();
 
         System.out.println("Podaj tytuł filmu: ");
-        String name = scanner.nextLine();
-        newMovie.setName(name);
+        newMovie.setName(scanner.nextLine());
 
         System.out.println("Podaj reżysera filmu: ");
-        String director = scanner.nextLine();
-        newMovie.setDirector(director);
+        newMovie.setDirector(scanner.nextLine());
 
         System.out.println("Podaj rok w którym film był nagrany: ");
-        String year = scanner.nextLine();
-        newMovie.setYear(year);
+        newMovie.setYear(scanner.nextLine());
 
         System.out.println("Podaj gatunek filmu: ");
-        String genre = scanner.nextLine();
-        newMovie.setGenere(genre);
+        newMovie.setGenere(scanner.nextLine());
 
         System.out.println("Podaj opis filmu: ");
-        String description = scanner.nextLine();
-        newMovie.setDescription(description);
+        newMovie.setDescription(scanner.nextLine());
 
         System.out.println("Podaj ocenę filmu: ");
-        double rating = scanner.nextDouble();
+        newMovie.setRating(scanner.nextDouble());
         scanner.nextLine();
-        newMovie.setRating(rating);
         if(newMovie.getRating()==0){
             newMovie = null;}
 
@@ -47,16 +41,13 @@ public class ConsoleDataReader {
         Actor newActor = new Actor();
 
         System.out.println("Podaj imię aktora: ");
-        String name = scanner.nextLine();
-        newActor.setName(name);
+        newActor.setName(scanner.nextLine());
 
         System.out.println("Podaj nazwisko aktora: ");
-        String surname = scanner.nextLine();
-        newActor.setSurname(surname);
+        newActor.setSurname(scanner.nextLine());
 
         System.out.println("Podaj narodowość aktora: ");
-        String nationality = scanner.nextLine();
-        newActor.setNationality(nationality);
+        newActor.setNationality(scanner.nextLine());
 
         return newActor;
 
@@ -66,35 +57,28 @@ public class ConsoleDataReader {
         Series newSeries = new Series();
 
         System.out.println("Podaj nazwę serialu: ");
-        String name = scanner.nextLine();
-        newSeries.setName(name);
+        newSeries.setName(scanner.nextLine());
 
         System.out.println("Podaj liczbę sezonów: ");
-        int noOfSeries = scanner.nextInt();
+        newSeries.setNoOfSeries(scanner.nextInt());
         scanner.nextLine();
-        newSeries.setNoOfSeries(noOfSeries);
 
         System.out.println("Podaj liczbę odcinków: ");
-        int noOfEpisodes = scanner.nextInt();
+        newSeries.setNoOfEpisodes(scanner.nextInt());
         scanner.nextLine();
-        newSeries.setNoOfEpisodes(noOfEpisodes);
 
         System.out.println("Podaj producenta: ");
-        String producer = scanner.nextLine();
-        newSeries.setProducer(producer);
+        newSeries.setProducer(scanner.nextLine());
 
         System.out.println("Podaj gatunek: ");
-        String genre = scanner.nextLine();
-        newSeries.setGenre(genre);
+        newSeries.setGenre(scanner.nextLine());
 
         System.out.println("Podaj opis: ");
-        String description = scanner.nextLine();
-        newSeries.setDescription(description);
+        newSeries.setDescription(scanner.nextLine());
 
         System.out.println("Podaj ocenę: ");
-        double rating = scanner.nextDouble();
+        newSeries.setRating(scanner.nextDouble());
         scanner.nextLine();
-        newSeries.setRating(rating);
         if(newSeries.getRating()==0){
             newSeries = null;}
 
