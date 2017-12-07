@@ -8,81 +8,102 @@ import java.util.Scanner;
 
 public class ConsoleDataReader {
 
+
+
+    Actor[] actor = new Actor[10];
+    Movie[] movie = new Movie[10];
+    Series[] series = new Series[10];
+
+
+
     Scanner scanner = new Scanner(System.in);
 
+    int movieCount;
     Movie createMovie(){
-        Movie newMovie = new Movie ();
+        movie[movieCount] = new Movie ();
 
         System.out.println("Podaj tytuł filmu: ");
-        newMovie.setName(scanner.nextLine());
+        movie[movieCount].setName(scanner.nextLine());
 
         System.out.println("Podaj reżysera filmu: ");
-        newMovie.setDirector(scanner.nextLine());
+        movie[movieCount].setDirector(scanner.nextLine());
 
         System.out.println("Podaj rok w którym film był nagrany: ");
-        newMovie.setYear(scanner.nextLine());
+        movie[movieCount].setYear(scanner.nextLine());
 
         System.out.println("Podaj gatunek filmu: ");
-        newMovie.setGenere(scanner.nextLine());
+        movie[movieCount].setGenere(scanner.nextLine());
 
         System.out.println("Podaj opis filmu: ");
-        newMovie.setDescription(scanner.nextLine());
+        movie[movieCount].setDescription(scanner.nextLine());
 
         System.out.println("Podaj ocenę filmu: ");
-        newMovie.setRating(scanner.nextDouble());
+        movie[movieCount].setRating(scanner.nextDouble());
         scanner.nextLine();
-        if(newMovie.getRating()==0){
-            newMovie = null;}
+        if(movie[movieCount].getRating()==0){
+            movie[movieCount] = null;
+            movieCount--;}
 
-        return newMovie;
+        movieCount++;
+        return movie[movieCount];
     }
 
+    int actorCount;
     Actor createActor(){
-        Actor newActor = new Actor();
+        actor[actorCount] = new Actor();
 
         System.out.println("Podaj imię aktora: ");
-        newActor.setName(scanner.nextLine());
+        actor[actorCount].setName(scanner.nextLine());
 
         System.out.println("Podaj nazwisko aktora: ");
-        newActor.setSurname(scanner.nextLine());
+        actor[actorCount].setSurname(scanner.nextLine());
 
         System.out.println("Podaj narodowość aktora: ");
-        newActor.setNationality(scanner.nextLine());
+        actor[actorCount].setNationality(scanner.nextLine());
 
-        return newActor;
+        actorCount++;
+
+        if (actorCount == 10) {
+            System.out.printf("Nie można utworzyć więcej aktorów!!!");
+        }
+        return actor[actorCount];
 
     }
 
+    int seriesCount;
     Series creteTvSeries(){
-        Series newSeries = new Series();
+        series[seriesCount] = new Series();
 
         System.out.println("Podaj nazwę serialu: ");
-        newSeries.setName(scanner.nextLine());
+        series[seriesCount].setName(scanner.nextLine());
 
         System.out.println("Podaj liczbę sezonów: ");
-        newSeries.setNoOfSeries(scanner.nextInt());
+        series[seriesCount].setNoOfSeries(scanner.nextInt());
         scanner.nextLine();
 
         System.out.println("Podaj liczbę odcinków: ");
-        newSeries.setNoOfEpisodes(scanner.nextInt());
+        series[seriesCount].setNoOfEpisodes(scanner.nextInt());
         scanner.nextLine();
 
         System.out.println("Podaj producenta: ");
-        newSeries.setProducer(scanner.nextLine());
+        series[seriesCount].setProducer(scanner.nextLine());
 
         System.out.println("Podaj gatunek: ");
-        newSeries.setGenre(scanner.nextLine());
+        series[seriesCount].setGenre(scanner.nextLine());
 
         System.out.println("Podaj opis: ");
-        newSeries.setDescription(scanner.nextLine());
+        series[seriesCount].setDescription(scanner.nextLine());
 
         System.out.println("Podaj ocenę: ");
-        newSeries.setRating(scanner.nextDouble());
+        series[seriesCount].setRating(scanner.nextDouble());
         scanner.nextLine();
-        if(newSeries.getRating()==0){
-            newSeries = null;}
+        if(series[seriesCount].getRating()==0){
+            series[seriesCount] = null;
+            seriesCount--;
+        }
 
-        return newSeries;
+        seriesCount++;
+        return series[seriesCount];
     }
 
 }
