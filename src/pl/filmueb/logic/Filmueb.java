@@ -35,16 +35,14 @@ public class Filmueb {
 
             switch (n) {
                 case 1:
-                    Movie movieTest = reader.createMovie();
-                    Movie movieName = movieTest;         // referencja testowa - wpisujemy obiekt do przetestowania
-                    if(movieName == null ){
+                    reader.createMovie();
+                    if(reader.movie[reader.movieCount] == null ){
                         System.out.println("Obiekt nie został utworzony.");
                     }
                     break;
                 case 2:
-                    Series seriesTest = reader.creteTvSeries();
-                    Series seriesName = seriesTest;      // referencja testowa - wpisujemy obiekt do przetestowania
-                    if (seriesName == null) {
+                    reader.creteTvSeries();
+                    if (reader.series[reader.seriesCount] == null) {
                         System.out.println("Obiekt nie został utworzony.");
                     }
                     break;
@@ -70,8 +68,6 @@ public class Filmueb {
 
         }
 
-
-        //System.out.println(reader.actorCount);
 
     }
 }
