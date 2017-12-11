@@ -1,6 +1,6 @@
 package pl.filmueb.data;
 
-import java.util.Scanner;
+import pl.filmueb.logic.ConsoleDataReader;
 
 public class ApplicationDatabase {
 
@@ -10,36 +10,37 @@ public class ApplicationDatabase {
 
 
 
-    private Scanner scanner = new Scanner(System.in);
+    ConsoleDataReader reader = new ConsoleDataReader();
 
     public int movieCount;
     public Movie createMovie(){
         movie[movieCount] = new Movie ();
 
         System.out.println("Podaj tytuł filmu: ");
-        movie[movieCount].setName(scanner.nextLine());
+        movie[movieCount].setName(reader.scanText());
 
         System.out.println("Podaj reżysera filmu: ");
-        movie[movieCount].setDirector(scanner.nextLine());
+        movie[movieCount].setDirector(reader.scanText());
 
         System.out.println("Podaj rok w którym film był nagrany: ");
-        movie[movieCount].setYear(scanner.nextLine());
+        movie[movieCount].setYear(reader.scanText());
 
         System.out.println("Podaj gatunek filmu: ");
-        movie[movieCount].setGenere(scanner.nextLine());
+        movie[movieCount].setGenere(reader.scanText());
 
         System.out.println("Podaj opis filmu: ");
-        movie[movieCount].setDescription(scanner.nextLine());
+        movie[movieCount].setDescription(reader.scanText());
 
         System.out.println("Podaj ocenę filmu: ");
-        movie[movieCount].setRating(scanner.nextDouble());
-        scanner.nextLine();
+        movie[movieCount].setRating(reader.scanRating());
         if(movie[movieCount].getRating()==0){
             movie[movieCount] = null;
+            System.out.println("Obiekt nie został utworzony");
             movieCount--;}
 
         movieCount++;
         return movie[movieCount];
+
     }
 
     public int actorCount;
@@ -47,13 +48,13 @@ public class ApplicationDatabase {
         actor[actorCount] = new Actor();
 
         System.out.println("Podaj imię aktora: ");
-        actor[actorCount].setName(scanner.nextLine());
+        actor[actorCount].setName(reader.scanText());
 
         System.out.println("Podaj nazwisko aktora: ");
-        actor[actorCount].setSurname(scanner.nextLine());
+        actor[actorCount].setSurname(reader.scanText());
 
         System.out.println("Podaj narodowość aktora: ");
-        actor[actorCount].setNationality(scanner.nextLine());
+        actor[actorCount].setNationality(reader.scanText());
 
         actorCount++;
 
@@ -69,30 +70,30 @@ public class ApplicationDatabase {
         series[seriesCount] = new Series();
 
         System.out.println("Podaj nazwę serialu: ");
-        series[seriesCount].setName(scanner.nextLine());
+        series[seriesCount].setName(reader.scanText());
 
         System.out.println("Podaj liczbę sezonów: ");
-        series[seriesCount].setNoOfSeries(scanner.nextInt());
-        scanner.nextLine();
+        series[seriesCount].setNoOfSeries(reader.scanSeriesEpisodes());
 
         System.out.println("Podaj liczbę odcinków: ");
-        series[seriesCount].setNoOfEpisodes(scanner.nextInt());
-        scanner.nextLine();
+        series[seriesCount].setNoOfEpisodes(reader.scanSeriesEpisodes());
 
         System.out.println("Podaj producenta: ");
-        series[seriesCount].setProducer(scanner.nextLine());
+        series[seriesCount].setProducer(reader.scanText());
 
         System.out.println("Podaj gatunek: ");
-        series[seriesCount].setGenre(scanner.nextLine());
+        series[seriesCount].setGenre(reader.scanText());
 
         System.out.println("Podaj opis: ");
-        series[seriesCount].setDescription(scanner.nextLine());
+        series[seriesCount].setDescription(reader.scanText());
 
         System.out.println("Podaj ocenę: ");
-        series[seriesCount].setRating(scanner.nextDouble());
-        scanner.nextLine();
+        series[seriesCount].setRating(reader.scanRating());
         if(series[seriesCount].getRating()==0){
-            series[seriesCount] = null;}
+            series[seriesCount] = null;
+            System.out.println("Obiekt nie został utworzony");
+            seriesCount--;
+        }
 
         seriesCount++;
         return series[seriesCount];

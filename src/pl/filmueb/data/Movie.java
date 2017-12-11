@@ -67,10 +67,10 @@ public class Movie {
     }
 
     public void setRating(double rating) {
-        if(rating >=0 && rating<=10)
+        if(rating >0 && rating<=10)
             this.rating = rating;
         else
-            System.out.println("Podana wartość jest nieprawidłowa. (Zakres oceny to 0-10)");
+            System.out.println("Podana wartość jest nieprawidłowa. (Zakres oceny to 1-10)");
     }
 
 

@@ -80,6 +80,6 @@ public class Series {
         if(rating >=0 && rating<=10)
             this.rating = rating;
         else
-            System.out.println("Podana wartość jest nieprawidłowa. (Zakres oceny to 0-10)");
+            System.out.println("Podana wartość jest nieprawidłowa. (Zakres oceny to 1-10)");
     }
 }
