@@ -1,4 +1,4 @@
-package pl.filmueb.data;
+package pl.filmueb.model;
 
 public class Movie extends Item {
 
@@ -34,5 +34,23 @@ public class Movie extends Item {
         this.year = year;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Movie)) return false;
+        if (!super.equals(o)) return false;
 
+        Movie movie = (Movie) o;
+
+        if (!director.equals(movie.director)) return false;
+        return year.equals(movie.year);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Reżyser : " + director +
+                ", Rok : " + year +
+                "\n";
+    }
 }

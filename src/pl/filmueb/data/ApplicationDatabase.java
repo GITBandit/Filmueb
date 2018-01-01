@@ -1,6 +1,10 @@
 package pl.filmueb.data;
 
-import pl.filmueb.logic.ConsoleDataReader;
+import pl.filmueb.io.ConsoleDataReader;
+import pl.filmueb.model.Actor;
+import pl.filmueb.model.Genre;
+import pl.filmueb.model.Movie;
+import pl.filmueb.model.Series;
 
 public class ApplicationDatabase {
 
@@ -26,17 +30,32 @@ public class ApplicationDatabase {
         movie[movieCount].setYear(reader.scanText());
 
         System.out.println("Podaj gatunek filmu: ");
-        movie[movieCount].setGenre(reader.scanText());
+        movie[movieCount].setGenre(Genre.convert(reader.scanText()).toString());
 
         System.out.println("Podaj opis filmu: ");
         movie[movieCount].setDescription(reader.scanText());
 
         System.out.println("Podaj ocenę filmu: ");
         movie[movieCount].setRating(reader.scanRating());
-        if(movie[movieCount].getRating()==0){
+        if (movie[movieCount].getRating()==0){
             movie[movieCount] = null;
             System.out.println("Obiekt nie został utworzony");
             movieCount--;}
+
+        if (movie[movieCount].getGenre().equals("UNDEFINED")){
+            System.out.println("Podany gatunek jest nieprawidłowy! Dostępne gatunki to: Sci-fi, Akcja, Komedia, Thriller");
+            System.out.println("Obiekt nie został utworzony");
+            movieCount--;}
+
+        for (int i = 0; i < movieCount; i++) {
+            if (movie[movieCount].equals(movie[i])) {
+                movie[movieCount] = null;
+                System.out.println("Taki film już istnieje w bazie");
+                System.out.println("Obiekt nie został utworzony");
+                movieCount--;
+            }
+        }
+
 
         movieCount++;
         return movie[movieCount];
@@ -56,11 +75,19 @@ public class ApplicationDatabase {
         System.out.println("Podaj narodowość aktora: ");
         actor[actorCount].setNationality(reader.scanText());
 
-        actorCount++;
+        for (int i = 0; i < actorCount; i++){
+            if (actor[actorCount].equals(actor[i])){
+                actor[actorCount] = null;
+                System.out.println("Taki aktor już istnieje w bazie");
+                System.out.println("Obiekt nie został utworzony");
+                actorCount--;
+            }
+        }
 
         if (actorCount == 10) {
             System.out.printf("Nie można utworzyć więcej aktorów!!!");
         }
+        actorCount++;
         return actor[actorCount];
 
     }
@@ -82,7 +109,7 @@ public class ApplicationDatabase {
         series[seriesCount].setProducer(reader.scanText());
 
         System.out.println("Podaj gatunek: ");
-        series[seriesCount].setGenre(reader.scanText());
+        series[seriesCount].setGenre(Genre.convert(reader.scanText()).toString());
 
         System.out.println("Podaj opis: ");
         series[seriesCount].setDescription(reader.scanText());
@@ -94,6 +121,22 @@ public class ApplicationDatabase {
             System.out.println("Obiekt nie został utworzony");
             seriesCount--;
         }
+        if(series[seriesCount].getGenre().equals("UNDEFINED")){
+            series[seriesCount] = null;
+            System.out.println("Podany gatunek jest nieprawidłowy! Dostępne gatunki to: Sci-fi, Akcja, Komedia, Thriller");
+            System.out.println("Obiekt nie został utworzony");
+            seriesCount--;
+        }
+
+        for (int i = 0; i < seriesCount; i++){
+            if (series[seriesCount].equals(series[i])){
+                series[seriesCount] = null;
+                System.out.println("Taki serial już istnieje w bazie");
+                System.out.println("Obiekt nie został utworzony");
+                seriesCount--;
+            }
+        }
+
 
         seriesCount++;
         return series[seriesCount];

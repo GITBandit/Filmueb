@@ -1,4 +1,4 @@
-package pl.filmueb.data;
+package pl.filmueb.model;
 
 public class Item {
 
@@ -51,5 +51,27 @@ public class Item {
             this.rating = rating;
         else
             System.out.println("Podana wartość jest nieprawidłowa. (Zakres oceny to 1-10)");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item)) return false;
+
+        Item item = (Item) o;
+
+        if (Double.compare(item.rating, rating) != 0) return false;
+        if (!name.equals(item.name)) return false;
+        if (!genre.equals(item.genre)) return false;
+        return description.equals(item.description);
+    }
+
+    @Override
+    public String toString() {
+        return "Tytuł : " + name +
+                ", Gatunek : " + Genre.convertBack(this.genre) +
+                ", \nOpis : " + description +
+                ", \nOcena : " + rating +
+                ", ";
     }
 }

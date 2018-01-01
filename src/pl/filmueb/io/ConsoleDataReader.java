@@ -1,9 +1,4 @@
-package pl.filmueb.logic;
-
-import pl.filmueb.data.Actor;
-import pl.filmueb.data.ApplicationDatabase;
-import pl.filmueb.data.Movie;
-import pl.filmueb.data.Series;
+package pl.filmueb.io;
 
 import java.util.Scanner;
 

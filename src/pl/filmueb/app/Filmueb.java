@@ -1,11 +1,7 @@
-package pl.filmueb.logic;
+package pl.filmueb.app;
 
-import pl.filmueb.data.Actor;
-import pl.filmueb.data.ApplicationDatabase;
-import pl.filmueb.data.Movie;
-import pl.filmueb.data.Series;
-
-import java.util.Scanner;
+import pl.filmueb.controller.ApplicationController;
+import pl.filmueb.model.Genre;
 
 public class Filmueb {
     public static void main(String[] args) {
@@ -15,7 +11,6 @@ public class Filmueb {
     ApplicationController controller = new ApplicationController();
 
     controller.mainLoop();
-
 
     }
 }

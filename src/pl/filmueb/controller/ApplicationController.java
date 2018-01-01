@@ -1,12 +1,13 @@
-package pl.filmueb.logic;
+package pl.filmueb.controller;
 
 import pl.filmueb.data.ApplicationDatabase;
-import pl.filmueb.data.Option;
+import pl.filmueb.io.ConsoleDataReader;
+import pl.filmueb.model.Genre;
 
 
 public class ApplicationController {
 
-    void mainLoop(){
+    public void mainLoop(){
 
         ConsoleDataReader reader = new ConsoleDataReader();
         ApplicationDatabase database = new ApplicationDatabase();
@@ -14,7 +15,7 @@ public class ApplicationController {
         int n;
 
         for(int i = 1; i==1;) {
-            System.out.println(Option.option1 + Option.option2 + Option.option3 + Option.option4 + Option.option5);
+            System.out.println(Option.option1.toString() + Option.option2.toString() + Option.option3.toString() + Option.option4.toString() + Option.option5.toString());
             n = reader.scanMenuChoice();
             if (n == 5) {
                 System.out.println("Do zobaczenia!");
@@ -22,28 +23,28 @@ public class ApplicationController {
             }
 
 
-            switch (n) {
-                case 1:
+            switch (Option.choiceToEnum(n)) {
+                case option1:
                     database.createMovie();
                     break;
-                case 2:
+                case option2:
                     database.creteTvSeries();
                     break;
-                case 3:
+                case option3:
                     database.createActor();
                     break;
-                case 4:
+                case option4:
                     for (int z=0; z<database.actorCount;z++ ){
                         System.out.println("Aktor "+(z+1));
-                        System.out.printf("Imię %s, Nazwisko: %s, Narodowość: %s \n", database.actor[z].getName(), database.actor[z].getSurname(), database.actor[z].getNationality());
+                        System.out.printf(database.actor[z].toString());
                     }
                     for (int x=0; x<database.movieCount;x++){
                         System.out.println("Film "+(x+1));
-                        System.out.printf("Tytuł: %s, Reżyser: %s, Rok: %s, Gatunek: %s \nOpis: %s\nOcena: %.2f \n", database.movie[x].getName(), database.movie[x].getDirector(), database.movie[x].getYear(), database.movie[x].getGenre(), database.movie[x].getDescription(), database.movie[x].getRating());
+                        System.out.printf(database.movie[x].toString());
                     }
                     for (int c=0; c<database.seriesCount;c++){
                         System.out.println("Serial "+(c+1));
-                        System.out.printf("Tytuł: %s, Liczba sezonów: %d, Liczba odcinków: %d \nProducent: %s, Gatunek: %s \nOpis: %s \nOcena: %.2f \n", database.series[c].getName(), database.series[c].getNoOfSeries(), database.series[c].getNoOfEpisodes(), database.series[c].getProducer(), database.series[c].getGenre(), database.series[c].getDescription(), database.series[c].getRating());
+                        System.out.printf(database.series[c].toString());
                     }
                     break;
                 default:

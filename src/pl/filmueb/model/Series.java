@@ -1,4 +1,4 @@
-package pl.filmueb.data;
+package pl.filmueb.model;
 
 public class Series extends Item {
 
@@ -42,4 +42,25 @@ public class Series extends Item {
         this.producer = producer;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Series)) return false;
+        if (!super.equals(o)) return false;
+
+        Series series = (Series) o;
+
+        if (noOfSeries != series.noOfSeries) return false;
+        if (noOfEpisodes != series.noOfEpisodes) return false;
+        return producer.equals(series.producer);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Liczba sezonów : " + noOfSeries +
+                ", Liczba odcinków : " + noOfEpisodes +
+                ", Producent : " + producer +
+                "\n";
+    }
 }
