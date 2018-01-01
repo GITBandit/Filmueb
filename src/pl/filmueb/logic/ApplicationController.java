@@ -1,6 +1,7 @@
 package pl.filmueb.logic;
 
 import pl.filmueb.data.ApplicationDatabase;
+import pl.filmueb.data.Option;
 
 
 public class ApplicationController {
@@ -13,13 +14,7 @@ public class ApplicationController {
         int n;
 
         for(int i = 1; i==1;) {
-            System.out.println("\nWybierz opcję:\n" +
-                    "1 - Dodaj film\n" +
-                    "2 - Dodaj serial\n" +
-                    "3 - Dodaj aktora\n" +
-                    "4 - Wyświetl wszystkie informacje\n" +
-                    "5 - Wyjdź\n"
-            );
+            System.out.println(Option.option1 + Option.option2 + Option.option3 + Option.option4 + Option.option5);
             n = reader.scanMenuChoice();
             if (n == 5) {
                 System.out.println("Do zobaczenia!");
@@ -44,7 +39,7 @@ public class ApplicationController {
                     }
                     for (int x=0; x<database.movieCount;x++){
                         System.out.println("Film "+(x+1));
-                        System.out.printf("Tytuł: %s, Reżyser: %s, Rok: %s, Gatunek: %s \nOpis: %s\nOcena: %.2f \n", database.movie[x].getName(), database.movie[x].getDirector(), database.movie[x].getYear(), database.movie[x].getGenere(), database.movie[x].getDescription(), database.movie[x].getRating());
+                        System.out.printf("Tytuł: %s, Reżyser: %s, Rok: %s, Gatunek: %s \nOpis: %s\nOcena: %.2f \n", database.movie[x].getName(), database.movie[x].getDirector(), database.movie[x].getYear(), database.movie[x].getGenre(), database.movie[x].getDescription(), database.movie[x].getRating());
                     }
                     for (int c=0; c<database.seriesCount;c++){
                         System.out.println("Serial "+(c+1));

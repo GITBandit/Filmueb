@@ -26,7 +26,7 @@ public class ApplicationDatabase {
         movie[movieCount].setYear(reader.scanText());
 
         System.out.println("Podaj gatunek filmu: ");
-        movie[movieCount].setGenere(reader.scanText());
+        movie[movieCount].setGenre(reader.scanText());
 
         System.out.println("Podaj opis filmu: ");
         movie[movieCount].setDescription(reader.scanText());
