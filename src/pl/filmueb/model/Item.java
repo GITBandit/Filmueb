@@ -1,5 +1,7 @@
 package pl.filmueb.model;
 
+import pl.filmueb.io.exceptions.IncorrectDataException;
+
 public class Item {
 
     private String name;
@@ -46,7 +48,7 @@ public class Item {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(double rating) throws IncorrectDataException {
         if(rating >=0 && rating<=10)
             this.rating = rating;
         else

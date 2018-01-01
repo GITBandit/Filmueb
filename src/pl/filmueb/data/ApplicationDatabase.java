@@ -1,10 +1,14 @@
 package pl.filmueb.data;
 
-import pl.filmueb.io.ConsoleDataReader;
+import pl.filmueb.controller.ApplicationController;
+import pl.filmueb.io.ApplicationIO;
+import pl.filmueb.io.exceptions.IncorrectDataException;
 import pl.filmueb.model.Actor;
 import pl.filmueb.model.Genre;
 import pl.filmueb.model.Movie;
 import pl.filmueb.model.Series;
+
+import java.util.Scanner;
 
 public class ApplicationDatabase {
 
@@ -14,7 +18,7 @@ public class ApplicationDatabase {
 
 
 
-    ConsoleDataReader reader = new ConsoleDataReader();
+    ApplicationIO reader = new ApplicationIO();
 
     public int movieCount;
     public Movie createMovie(){
@@ -36,7 +40,14 @@ public class ApplicationDatabase {
         movie[movieCount].setDescription(reader.scanText());
 
         System.out.println("Podaj ocenę filmu: ");
-        movie[movieCount].setRating(reader.scanRating());
+        try {
+            movie[movieCount].setRating(reader.scanRating());
+        } catch (IncorrectDataException e){
+            System.err.println("Nieprawidłowy format, spróbuj ponownie");
+            movie[movieCount] = null;
+            movieCount--;
+        }
+
         if (movie[movieCount].getRating()==0){
             movie[movieCount] = null;
             System.out.println("Obiekt nie został utworzony");

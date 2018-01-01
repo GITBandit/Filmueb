@@ -1,15 +1,14 @@
 package pl.filmueb.controller;
 
 import pl.filmueb.data.ApplicationDatabase;
-import pl.filmueb.io.ConsoleDataReader;
-import pl.filmueb.model.Genre;
+import pl.filmueb.io.ApplicationIO;
 
 
 public class ApplicationController {
 
     public void mainLoop(){
 
-        ConsoleDataReader reader = new ConsoleDataReader();
+        ApplicationIO reader = new ApplicationIO();
         ApplicationDatabase database = new ApplicationDatabase();
 
         int n;
